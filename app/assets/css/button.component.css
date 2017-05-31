@@ -1,0 +1,169 @@
+/* Variables */
+/* Functions */
+/* Button container */
+.btn_container {
+  position: absolute;
+  top: 100px;
+  left: 100px; }
+
+/* Button icon align */
+.custom_btn_left {
+  position: relative;
+  width: 70%;
+  height: 100%;
+  float: left; }
+
+.custom_btn_right {
+  position: relative;
+  width: 70%;
+  height: 100%;
+  float: right; }
+
+.custom_btn_default {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+.custom_addon_left {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  float: left; }
+
+.custom_addon_right {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  float: right; }
+
+.custom_addon_display_none {
+  display: none; }
+
+/* Align button container elements */
+.btn_label, .btn_addon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+/* Button container shapes */
+.rectangle {
+  width: 100px;
+  height: 50px; }
+
+.circle {
+  width: 100px;
+  height: 50px;
+  border-radius: 50px; }
+
+.oval {
+  width: 100px;
+  height: 50px;
+  -moz-border-radius: 2;
+  -webkit-border-radius: 2;
+  border-radius: 2; }
+
+.rounded-rectangle {
+  width: 100px;
+  height: 50px;
+  border-radius: 5px; }
+
+.tab {
+  width: 100px;
+  height: 50px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px; }
+
+/* Button types */
+.text {
+  background-color: #f0fff0;
+  color: #426d9c; }
+
+.text:hover {
+  color: #f0fff0; }
+
+.danger {
+  border: .5px solid #c12d2d;
+  background-color: #dd3333;
+  color: #f0fff0; }
+
+.danger:hover {
+  background-color: #db4c4c;
+  color: #f0fff0; }
+
+.warning {
+  border: .5px solid #e77312;
+  background-color: #ec842f;
+  color: #f0fff0; }
+
+.warning:hover {
+  background-color: #e29453;
+  color: #f0fff0; }
+
+.info {
+  border: .5px solid #62a8e7;
+  background-color: #72b4f0;
+  color: #f0fff0; }
+
+.info:hover {
+  background-color: #8ebfed;
+  color: #f0fff0; }
+
+.success {
+  border: .5px solid #508b17;
+  background-color: #3ca543;
+  color: #f0fff0; }
+
+.success:hover {
+  background-color: #5bad61;
+  color: #f0fff0; }
+
+.primary {
+  border: .5px solid #8e8e91;
+  background-color: #9a9a9e;
+  color: #f0fff0; }
+
+.primary:hover {
+  background-color: #aeaeb2;
+  color: #f0fff0; }
+
+.secondary {
+  border: .5px solid #4e4e7c;
+  background-color: #68688d;
+  color: #f0fff0; }
+
+.secondary:hover {
+  background-color: #77778e;
+  color: #f0fff0; }
+
+/* Button sizes */
+.x-small {
+  width: 66.6666666667px;
+  height: 33.3333333333px;
+  font-size: x-small; }
+
+.small {
+  width: 83.3333333333px;
+  height: 41.6666666667px;
+  font-size: small; }
+
+.regular {
+  width: 100px;
+  height: 50px;
+  font-size: medium; }
+
+.large {
+  width: 120px;
+  height: 60px;
+  font-size: large; }
+
+.x-large {
+  width: 130px;
+  height: 65px;
+  font-size: x-large; }
+
+/* Button orientation */
+.vertical {
+  transform: rotate(90deg); }

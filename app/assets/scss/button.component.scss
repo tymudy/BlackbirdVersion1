@@ -1,0 +1,214 @@
+/* Variables */
+$white: #f0fff0;
+$width: 100px;
+$height: 50px;
+
+/* Functions */
+@function decreaseBtnSize($v, $n){
+    @return $v / $n;
+}
+@function increaseBtnSize($v, $n){
+    @return $v * $n;
+}
+
+/* Button container */
+.btn_container {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+
+/* Button icon align */
+.custom_btn_left {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+
+.custom_btn_right{
+    position: relative;
+    width: 70%;
+    height: 100%;
+    float: right;
+}
+
+.custom_btn_default {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.custom_addon_left {
+    position: relative;
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.custom_addon_right {
+    position: relative;
+    width: 30%;
+    height: 100%;
+    float: right;
+}
+
+.custom_addon_display_none {
+    display: none;
+}
+
+/* Align button container elements */
+.btn_label, .btn_addon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Button container shapes */
+.rectangle {
+    width: $width;
+    height: $height;
+}
+
+.circle {
+    width: $width;
+	height: $height;
+	border-radius: 50px;
+}
+
+.oval {
+    width: $width;
+	height: $height;
+	-moz-border-radius: $width / $height;
+	-webkit-border-radius: $width / $height;
+	border-radius: $width / $height;
+}
+
+.rounded-rectangle {
+    width: $width;
+    height: $height;
+    border-radius: 5px;
+}
+
+.tab {
+    width: $width;
+    height: $height;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* Button types */
+.text {
+    background-color: $white;
+    color: #426d9c; 
+}
+
+.text:hover{
+    color: $white;
+}
+
+.danger {
+    border: .5px solid #c12d2d;
+    background-color: #dd3333;
+    color: $white;  
+}
+
+.danger:hover{
+    background-color: #db4c4c;
+    color: $white; 
+}
+
+.warning {
+    border: .5px solid #e77312;
+    background-color: #ec842f;
+    color: $white; 
+}
+
+.warning:hover {
+    background-color: #e29453;
+    color: $white; 
+}
+
+.info {
+    border: .5px solid #62a8e7;
+    background-color: #72b4f0;
+    color: $white;
+}
+
+.info:hover {
+    background-color: #8ebfed;
+    color: $white;
+}
+
+.success {
+    border: .5px solid #508b17;
+    background-color: #3ca543;
+    color: $white;
+}
+
+.success:hover {
+    background-color: #5bad61;
+    color: $white;
+}
+
+.primary {
+    border: .5px solid #8e8e91;
+    background-color: #9a9a9e;
+    color: $white;
+}
+
+.primary:hover {
+    background-color: #aeaeb2;
+    color: $white;
+}
+
+.secondary {
+    border: .5px solid #4e4e7c;
+    background-color: #68688d;
+    color: $white;
+}
+
+.secondary:hover {
+    background-color: #77778e;
+    color: $white;
+}
+
+/* Button sizes */
+
+.x-small {
+    width: decreaseBtnSize($v: $width, $n: 1.5);
+    height: decreaseBtnSize($v: $height, $n: 1.5);
+    font-size: x-small;
+}
+
+.small {
+    width: decreaseBtnSize($v: $width, $n: 1.2);
+    height: decreaseBtnSize($v: $height, $n: 1.2);
+    font-size: small;
+}
+
+.regular{
+    width: $width;
+    height: $height;
+    font-size: medium;
+}
+
+.large {
+    width: increaseBtnSize($v: $width, $n: 1.2);
+    height: increaseBtnSize($v: $height, $n: 1.2);
+    font-size: large;
+}
+
+.x-large {
+    width: increaseBtnSize($v: $width, $n: 1.3);
+    height: increaseBtnSize($v: $height, $n: 1.3);
+    font-size: x-large;
+}
+
+/* Button orientation */
+ .vertical {
+     transform: rotate(90deg);
+ }
