@@ -1,5 +1,4 @@
 /* Variables */
-/* Functions */
 /* Button container */
 .btn_container {
   position: absolute;
@@ -49,19 +48,24 @@
 /* Button container shapes */
 .rectangle {
   width: 100px;
-  height: 50px; }
+  height: 50px;
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px; }
 
 .circle {
   width: 100px;
-  height: 50px;
+  height: 100px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
   border-radius: 50px; }
 
 .oval {
-  width: 100px;
-  height: 50px;
-  -moz-border-radius: 2;
-  -webkit-border-radius: 2;
-  border-radius: 2; }
+  width: 200px;
+  height: 100px;
+  -moz-border-radius: 100px / 50px;
+  -webkit-border-radius: 100px / 50px;
+  border-radius: 100px / 50px; }
 
 .rounded-rectangle {
   width: 100px;
@@ -138,30 +142,20 @@
   background-color: #77778e;
   color: #f0fff0; }
 
-/* Button sizes */
+/* Button font sizes */
 .x-small {
-  width: 66.6666666667px;
-  height: 33.3333333333px;
   font-size: x-small; }
 
 .small {
-  width: 83.3333333333px;
-  height: 41.6666666667px;
   font-size: small; }
 
 .regular {
-  width: 100px;
-  height: 50px;
   font-size: medium; }
 
 .large {
-  width: 120px;
-  height: 60px;
   font-size: large; }
 
 .x-large {
-  width: 130px;
-  height: 65px;
   font-size: x-large; }
 
 /* Button orientation */

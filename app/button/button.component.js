@@ -16,6 +16,7 @@ var ButtonComponent = (function () {
     ButtonComponent.prototype.ngOnInit = function () {
         this.setPropertiesValueIfUndefined();
         this.setIconAndLabelAlignPosition();
+        this.validateDefaultState();
         if (this.onPress) {
             this.printActionId(this.onPress);
         }
@@ -31,26 +32,8 @@ var ButtonComponent = (function () {
         if (this.onBlur) {
             this.printActionId(this.onBlur);
         }
-    };
-    ButtonComponent.prototype.printActionId = function (id) {
-        console.log(id);
-    };
-    ButtonComponent.prototype.removeIcon = function () {
-        this.icon = 'display_none';
-        this.label_align = 'default';
-        this.icon_align = '';
-    };
-    ButtonComponent.prototype.setIconAndLabelAlignPosition = function () {
-        if (this.icon) {
-            if (this.icon_align.indexOf('right') >= 0) {
-                this.label_align = 'left';
-            }
-            else if (this.icon_align.indexOf('left') >= 0) {
-                this.label_align = 'right';
-            }
-        }
-        else {
-            this.removeIcon();
+        if (this.default_state) {
+            this.printDefaultState();
         }
     };
     ButtonComponent.prototype.setPropertiesValueIfUndefined = function () {
@@ -75,9 +58,50 @@ var ButtonComponent = (function () {
         if (!this.type) {
             this.type = 'primary';
         }
-        if (!this.orientation) {
-            this.orientation = 'regular';
+        if (!this.default_state) {
+            this.default_state = 'enabled';
         }
+        if (!this.size) {
+            this.size = 'regular';
+        }
+    };
+    ButtonComponent.prototype.removeIcon = function () {
+        this.icon = 'display_none';
+        this.label_align = 'default';
+        this.icon_align = '';
+    };
+    ButtonComponent.prototype.setIconAndLabelAlignPosition = function () {
+        if (this.icon) {
+            if ((this.icon_align.match(/^right$/) == null) &&
+                (this.icon_align.match(/^left$/) == null)) {
+                this.icon_align = 'right';
+                this.label_align = 'left';
+            }
+            else {
+                if (this.icon_align.indexOf('right') >= 0) {
+                    this.label_align = 'left';
+                }
+                else if (this.icon_align.indexOf('left') >= 0) {
+                    this.label_align = 'right';
+                }
+            }
+        }
+        else {
+            this.removeIcon();
+        }
+    };
+    ButtonComponent.prototype.validateDefaultState = function () {
+        if ((this.default_state.match(/^enabled$/) == null) &&
+            (this.default_state.match(/^disabled$/) == null) &&
+            (this.default_state.match(/^pressed$/) == null)) {
+            this.default_state = 'enabled';
+        }
+    };
+    ButtonComponent.prototype.printActionId = function (id) {
+        console.log(id);
+    };
+    ButtonComponent.prototype.printDefaultState = function () {
+        console.log(this.default_state);
     };
     return ButtonComponent;
 }());
@@ -86,13 +110,13 @@ __decorate([
     __metadata("design:type", String)
 ], ButtonComponent.prototype, "name", void 0);
 __decorate([
-    core_1.Input('label'),
-    __metadata("design:type", String)
-], ButtonComponent.prototype, "label", void 0);
-__decorate([
     core_1.Input('class'),
     __metadata("design:type", String)
 ], ButtonComponent.prototype, "class", void 0);
+__decorate([
+    core_1.Input('label'),
+    __metadata("design:type", String)
+], ButtonComponent.prototype, "label", void 0);
 __decorate([
     core_1.Input('icon'),
     __metadata("design:type", String)

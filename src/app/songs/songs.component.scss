@@ -1,0 +1,158 @@
+.search-results {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.description {
+  height: 60%;
+}
+
+.picture {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+
+.songs {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+.songs li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.songs li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
+.songs .text {
+  position: relative;
+  top: -3px;
+}
+.row .image{
+  margin: auto;
+  display: block;
+  padding-top: 10%;
+}
+.row.details{
+  text-align: center;
+  padding-top: 3%;
+}
+$primary-color: #3d4f5d;
+$primary-text: #fff;
+$dark-text:#015601;
+$secondary-text: #2c3e50;
+$accent-color: #5b8796;
+$border-color: rgb(209, 218, 223);
+$semi-transparent: rgba(242, 242, 246, 0.98);
+$hover-color: rgba(232, 232, 232, 0.29);
+
+.search-results {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+.status{
+  width: 100%;
+  position: absolute;
+}
+.full-size{
+  width: 100%;
+  height: 100%;
+}
+virtual-scroll,
+[virtualScroll] {
+  overflow: hidden;
+  overflow-y: auto;
+  height: 80%;
+  display: block;
+  width: 80%;
+  top: 20%;
+  position: absolute;
+  right: 10%;
+}
+.player-container{
+  padding: 0;
+  position: absolute;
+  left: 10%;
+  top: 10%;
+  height: 80%;
+  width: 0;
+  overflow:hidden;
+}
+.transform {
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.close-img{
+  float: right;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+.transform-active {
+  width: 80%;
+}
+:host {
+  list-item {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    border: 0;
+    margin: 0px;
+    width: 100%;
+    border-bottom: 1px solid #bebebe;
+  }
+  button {
+    background: #03A9F4;
+    border: none;
+    color: white;
+    margin: 1em;
+    width: 4em;
+    border-radius: 5em;
+    font-size: .8em;
+    line-height: 1em;
+    padding: .5em;
+    outline: none;
+  }
+  .loader {
+    height: 4em;
+    display: block;
+    line-height: 4em;
+    text-align: center;
+    position: relative;
+  }
+  .loader:before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 2px;
+    background: red;
+    animation: loader-animation 2s ease-out infinite;
+  }
+  @keyframes loader-animation {
+    0% {
+      transform: translate(0%);
+    }
+    100% {
+      transform: translate(500%);
+    }
+  }
+}

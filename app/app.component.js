@@ -15,7 +15,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'gallery-app',
-        template: "\n       <btn [name]=\"'Button'\" \n            [label]=\"'Add'\"\n            [class]=\"'MyClass'\"  \n            [shape]=\"'rounded-rectangle'\"\n            [icon]=\"'fa fa-plus'\">\n       </btn>\n    "
+        template: "\n       <btn [name]=\"'Button'\" \n            [label]=\"'Add'\"\n            [class]=\"'MyClass'\"  \n            [shape]=\"'tab'\"\n            [icon_align]=\"'left'\"\n            [icon]=\"'fa fa-plus'\">\n       </btn>\n       <slider></slider>\n    "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

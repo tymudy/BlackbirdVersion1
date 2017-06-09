@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent }  from './app.component';
 import { ButtonComponent } from './button/button.component';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   imports: [ BrowserModule ],
   declarations: [ 
     AppComponent,
-    ButtonComponent
+    ButtonComponent,
+    SliderComponent
    ],
   bootstrap: [ AppComponent ]
 })

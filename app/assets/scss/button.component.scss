@@ -3,14 +3,6 @@ $white: #f0fff0;
 $width: 100px;
 $height: 50px;
 
-/* Functions */
-@function decreaseBtnSize($v, $n){
-    @return $v / $n;
-}
-@function increaseBtnSize($v, $n){
-    @return $v * $n;
-}
-
 /* Button container */
 .btn_container {
     position: absolute;
@@ -67,33 +59,38 @@ $height: 50px;
 
 /* Button container shapes */
 .rectangle {
-    width: $width;
-    height: $height;
+  width: 100px;
+  height: 50px;
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
 }
 
 .circle {
-    width: $width;
-	height: $height;
-	border-radius: 50px;
+   width: 100px;
+   height: 100px;
+   -moz-border-radius: 50px;
+   -webkit-border-radius: 50px;
+   border-radius: 50px;
 }
 
 .oval {
-    width: $width;
-	height: $height;
-	-moz-border-radius: $width / $height;
-	-webkit-border-radius: $width / $height;
-	border-radius: $width / $height;
+    width: 200px;
+	height: 100px;
+	-moz-border-radius: 100px / 50px;
+	-webkit-border-radius: 100px / 50px;
+	border-radius: 100px / 50px;
 }
 
 .rounded-rectangle {
-    width: $width;
-    height: $height;
+    width: 100px;
+    height: 50px;
     border-radius: 5px;
 }
 
 .tab {
-    width: $width;
-    height: $height;
+    width:100px;
+    height: 50px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 0px;
@@ -176,37 +173,21 @@ $height: 50px;
     color: $white;
 }
 
-/* Button sizes */
-
+/* Button font sizes */
 .x-small {
-    width: decreaseBtnSize($v: $width, $n: 1.5);
-    height: decreaseBtnSize($v: $height, $n: 1.5);
-    font-size: x-small;
-}
+  font-size: x-small; }
 
 .small {
-    width: decreaseBtnSize($v: $width, $n: 1.2);
-    height: decreaseBtnSize($v: $height, $n: 1.2);
-    font-size: small;
-}
+  font-size: small; }
 
-.regular{
-    width: $width;
-    height: $height;
-    font-size: medium;
-}
+.regular {
+  font-size: medium; }
 
 .large {
-    width: increaseBtnSize($v: $width, $n: 1.2);
-    height: increaseBtnSize($v: $height, $n: 1.2);
-    font-size: large;
-}
+  font-size: large; }
 
 .x-large {
-    width: increaseBtnSize($v: $width, $n: 1.3);
-    height: increaseBtnSize($v: $height, $n: 1.3);
-    font-size: x-large;
-}
+  font-size: x-large; }
 
 /* Button orientation */
  .vertical {

@@ -7,9 +7,11 @@ import { ButtonComponent } from './button/button.component';
        <btn [name]="'Button'" 
             [label]="'Add'"
             [class]="'MyClass'"  
-            [shape]="'rounded-rectangle'"
+            [shape]="'tab'"
+            [icon_align]="'left'"
             [icon]="'fa fa-plus'">
        </btn>
+       <slider></slider>
     `
 })
 export class AppComponent {
