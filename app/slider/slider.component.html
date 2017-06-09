@@ -1,18 +1,21 @@
-<div class="container">
-    <div class="components">
-        <div class="custom_addon_left">
-            <div class="btn_addon">
-                <i class="{{minIcon}}" aria-hidden="true"></i>
+<div id="{{name}}" class="slider_container {{class}} {{orientation}} {{size}}">
+    <div class="custom_addon_left">
+            <div class="btn_addon" (click)="decrementSlider()">
+                <fa class="custom_icon_color" name="{{minIcon}}"></fa>
             </div>
-        </div>
-        <div class="slider_container">
-            <div class="slider_controller">
-            </div>
-        </div>
-        <div class="custom_addon_right">
-            <div class="btn_addon">
-                <i class="{{maxIcon}}" aria-hidden="true"></i>
-            </div>
-        </div>
     </div>
+    <div class="custom_range">
+        <input class="common {{handle_shape}}" 
+            type="range" 
+            [attr.multiple]="inRange()"  
+            value="{{value}}" 
+            min="{{min}}" 
+            max="{{max}}" 
+            step="{{step}}"/>
+    </div> 
+    <div class="custom_addon_right">
+            <div class="btn_addon" (click)=incrementSlider()>
+                <fa class="custom_icon_color" name="{{maxIcon}}"></fa>
+            </div>
+        </div>
 </div>
