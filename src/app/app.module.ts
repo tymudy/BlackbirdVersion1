@@ -18,7 +18,7 @@ import { ListSongComponent } from './songs/list-song.component';
 import { SliderComponent } from './slider/slider.component';
 import { SliderRangeComponent } from './slider/slider-range.component';
 
-import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
+/*import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';*/
 
 @NgModule({
   declarations: [
@@ -29,17 +29,17 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awes
     ListSongComponent
   ],
   imports: [
-    AngularFontAwesomeModule,
+   /* AngularFontAwesomeModule,*/
     BrowserModule,
     BusyModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     VirtualScrollModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES, {useHash: true})
   ],
   providers: [{
-    provide: SliderRangeComponent,
+    provide: [RouteReuseStrategy, SliderRangeComponent],
     useClass: CustomRouteReuseStrategy
   }],
   bootstrap: [AppComponent]

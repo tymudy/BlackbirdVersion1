@@ -30,7 +30,7 @@ export class ButtonComponent implements OnInit {
     ngOnInit (): void {
         this.setPropertiesValueIfUndefined();
         this.setIconAndLabelAlignPosition();
-        this.validateDefaultState();
+        this.setDefaultState();
 
         if(this.onPress){
             this.printActionId(this.onPress);
@@ -106,7 +106,7 @@ export class ButtonComponent implements OnInit {
         }
     }
 
-    validateDefaultState(): void {
+    setDefaultState(): void {
         if( (this.default_state.match(/^enabled$/) == null)&&
             (this.default_state.match(/^disabled$/) == null)&&
             (this.default_state.match(/^pressed$/) == null) ){

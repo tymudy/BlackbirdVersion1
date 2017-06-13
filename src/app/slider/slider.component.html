@@ -1,21 +1,38 @@
 <div id="{{name}}" class="slider_container {{class}} {{orientation}} {{size}}">
-    <div class="custom_addon_left">
-            <div class="btn_addon" (click)="decrementSlider()">
-                <fa class="custom_icon_color" name="{{minIcon}}"></fa>
+    <div class="custom_addon_{{icon_display_left}}">
+            <div class="btn_addon_left">
+                <i class="custom_icon_color {{minIcon}}"></i>
             </div>
     </div>
-    <div class="custom_range">
-        <input class="common {{handle_shape}}" 
-            type="range" 
-            [attr.multiple]="inRange()"  
-            value="{{value}}" 
-            min="{{min}}" 
-            max="{{max}}" 
-            step="{{step}}"/>
-    </div> 
-    <div class="custom_addon_right">
-            <div class="btn_addon" (click)=incrementSlider()>
-                <fa class="custom_icon_color" name="{{maxIcon}}"></fa>
+    <div *ngIf="isRange; then withRange else withoutRange"></div>
+
+    <ng-template #withRange>
+        <div class="custom_{{slider_display}}">
+            <input id="{{uniqueID}}"
+                class="common {{handleShape}}" 
+                type="range" 
+                [attr.multiple]="inRange()"
+                attr.valuePair={{initValuePair}}
+                min="{{min}}" 
+                max="{{max}}" 
+                step="{{step}}"
+                (change)="update()">
+        </div>
+    </ng-template>
+    <ng-template #withoutRange>
+        <div class="custom_{{slider_display}}">
+            <input id="{{uniqueID}}"
+                class="common {{handleShape}}" 
+                type="range" 
+                value="{{initValue}}"
+                min="{{min}}" 
+                max="{{max}}" 
+                step="{{step}}">
+        </div>
+    </ng-template>
+    <div class="custom_addon_{{icon_display_right}}">
+            <div class="btn_addon_right">
+                <i class="custom_icon_color {{maxIcon}}"></i>
             </div>
         </div>
 </div>

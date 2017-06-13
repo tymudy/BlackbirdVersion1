@@ -4,14 +4,16 @@
       <btn  [name]="'Button'" 
             [label]="'Title'"
             [class]="'MyClass'" 
-            [icon]="'plus'">
+            [icon]="'fa fa-plus'">
       </btn>
       <br>
-      <slider [step]="2"
-              [isRange]="true"
-              [initValuePair]="'10 50'"
-              [initValue]="10"
-              >
+      <slider [isRange]="true"
+              [initValuePair]="'20 90'"
+              [handleShape]="'rectangle'"
+              [minIcon]="'fa fa-plus'"
+              [min]="10"
+              [max]="200"
+              [step]="1">
       </slider>
     </a>
     <ul class="nav navbar-nav" routerLinkActive="active">

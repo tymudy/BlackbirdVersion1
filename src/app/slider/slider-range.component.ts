@@ -8,7 +8,7 @@ export class SliderRangeComponent {
 		    return;
 	    }
 
-        let values = input.getAttribute("value").split(",");
+        let values = input.getAttribute("value").split(" ");
         let min = +input.min || 0;
         let max = +input.max || 100;
         let ghost = input.cloneNode();
@@ -40,11 +40,12 @@ export class SliderRangeComponent {
         }
 
         input.addEventListener("input", update);
+        ghost.addEventListener("input", update);
 
         update();
     } 
 
     init(): void {
-        [].slice.call(document.querySelectorAll("input[type=range][multiple]:not(.multirange)")).forEach(this.multirange);
+        [].slice.call(document.querySelector("input[type=range][multiple]:not(.multirange)")).forEach(this.multirange);
     }
 }
