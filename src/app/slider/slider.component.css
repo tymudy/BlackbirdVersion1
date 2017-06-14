@@ -92,7 +92,7 @@
 	}
 	input[type='range']::-webkit-slider-thumb {
 		-webkit-appearance: none;
-		background-color: #CCC;
+		background-color: #8e8e91;
 		box-shadow: 0 0 0 2px #CCC;
 		vertical-align:middle;
 		border: none;
@@ -230,5 +230,3 @@
   .custom_icon_color:hover {
       color: #d6dbd6;
   }
-
-

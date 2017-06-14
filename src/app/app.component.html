@@ -4,17 +4,18 @@
       <btn  [name]="'Button'" 
             [label]="'Title'"
             [class]="'MyClass'" 
+            [shape]="'rounded-rectangle'"
             [icon]="'fa fa-plus'">
       </btn>
       <br>
-      <slider [isRange]="true"
+      <slider [isRange]="false"
               [initValuePair]="'20 90'"
               [handleShape]="'rectangle'"
-              [minIcon]="'fa fa-plus'"
               [min]="10"
               [max]="200"
-              [step]="1">
-      </slider>
+              [step]="1"
+              [tick]="10">
+      </slider>      
     </a>
     <ul class="nav navbar-nav" routerLinkActive="active">
       <li class="nav-item"><a class="nav-link" routerLink="page/1">page 1</a></li>

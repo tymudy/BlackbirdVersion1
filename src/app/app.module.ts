@@ -5,18 +5,21 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {ROUTES} from './route/routes';
 
-import {BusyModule} from 'angular2-busy';
+import { BusyModule } from 'angular2-busy';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {CustomRouteReuseStrategy} from './route-reuse.strategy';
-import {VirtualScrollModule} from './virtual-scroll';
+import { CustomRouteReuseStrategy } from './route-reuse.strategy';
+import { VirtualScrollModule } from './virtual-scroll';
 
 import { AppComponent } from './app.component';
 import { SongsComponent } from './songs/songs.component';
 import { ButtonComponent } from './button/button.component';
 import { ListSongComponent } from './songs/list-song.component';
 import { SliderComponent } from './slider/slider.component';
-import { SliderRangeComponent } from './slider/slider-range.component';
+
+import { enableProdMode } from '@angular/core';
+
+enableProdMode();
 
 /*import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';*/
 
@@ -39,7 +42,7 @@ import { SliderRangeComponent } from './slider/slider-range.component';
     RouterModule.forRoot(ROUTES, {useHash: true})
   ],
   providers: [{
-    provide: [RouteReuseStrategy, SliderRangeComponent],
+    provide: [RouteReuseStrategy],
     useClass: CustomRouteReuseStrategy
   }],
   bootstrap: [AppComponent]

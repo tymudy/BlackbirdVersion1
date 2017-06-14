@@ -2,10 +2,9 @@ import { Component,
          Input, 
          Output,
          OnInit,
-         OnChanges,
-         AfterViewInit} from '@angular/core';
+         AfterViewInit,
+         EventEmitter} from '@angular/core';
 import { NgIf } from '@angular/common';
-import { SliderRangeComponent } from './slider-range.component';
 
 @Component({
     selector:'slider',
@@ -15,7 +14,7 @@ import { SliderRangeComponent } from './slider-range.component';
         './slider-range.component.css'
     ]
 })
-export class SliderComponent implements OnInit, AfterViewInit, OnChanges {
+export class SliderComponent implements OnInit, AfterViewInit {
     @Input('name') name: string;
     @Input('class') class: string;
     @Input('min') min: number;
@@ -35,26 +34,32 @@ export class SliderComponent implements OnInit, AfterViewInit, OnChanges {
     @Input('onSlide') onSlide: number;
     @Input('onSlideEnd') onSlideEnd: number;
 
+    uniqueID: string;
+    valueLow: any;
+    valueHigh: any;
+    input: any;
+    ghost: any;
+
     icon_display_left: string;
     icon_display_right: string;
     slider_display: string;
 
-    uniqueID: string;
-    input: any;
-    ghost: any;
-    minV: string; 
-    maxV: string;
+    gradiant: any = [];
+    tickmarks: string;
 
     constructor() {
     }
 
     ngOnInit (): void {
+
         this.uniqueID = "id_" + Date.now();
+
         this.setPropertiesValueIfUndefined();
         this.setIconsIfUndefined();
         this.setMinMaxValues();
-        this.setValue();
-        this.setDefaultState();       
+        this.setInputValues();
+        this.setDefaultState();
+        this.setTick();       
 
         if(this.onSlide){
             this.printActionId(this.onSlide);
@@ -66,15 +71,10 @@ export class SliderComponent implements OnInit, AfterViewInit, OnChanges {
 
     }
 
-    ngOnChanges() {
-    
-    }
-
     ngAfterViewInit() { 
         this.input = <HTMLElement>document.getElementById(this.uniqueID);
-        this.ghost = <HTMLElement>this.input.cloneNode();
-        this.minV = this.input.getAttribute("min"); 
-        this.maxV = this.input.getAttribute("max");
+        this.ghost = <HTMLElement>document.getElementById(this.uniqueID + "_ghost");
+     
         this.initializeRangeIfRangeIsRequired();
     }
 
@@ -105,19 +105,13 @@ export class SliderComponent implements OnInit, AfterViewInit, OnChanges {
         }
     }
 
-    setValue(): void {
-        if (this.isRange){
-            if (!this.initValuePair){
-                this.initValuePair = this.min + " " + this.max;
-            }
-        }else{
-            if (!this.initValue) {
-               this.initValue = this.min;
-            }
-        }
-    }
-
     setIconsIfUndefined(): void {
+        if(this.minIcon && this.maxIcon){
+            this.icon_display_left = 'left';
+            this.icon_display_right = 'right';
+            this.slider_display = 'range';
+            return;
+        }
         if(!this.minIcon && !this.maxIcon) {
             this.icon_display_left = 'display_none';
             this.icon_display_right = 'display_none';
@@ -133,6 +127,42 @@ export class SliderComponent implements OnInit, AfterViewInit, OnChanges {
                     this.icon_display_left = 'display_none';
                     this.slider_display = 'left';
                 }
+            }
+        }
+    }
+
+    setDefaultState(): void {
+        if( (this.default_state.match(/^enabled$/) == null)&&
+            (this.default_state.match(/^disabled$/) == null) ){
+                this.default_state = 'enabled';
+            }
+    }
+
+    setTick(): void {
+        if(this.tick){
+            this.populateGradiant();
+            this.tickmarks = 'tickmarks';
+        }else{
+            this.tickmarks = '';
+        }
+    }
+
+    populateGradiant(): void{
+        let g = this.min;
+        while(g <= this.max){
+            this.gradiant.push(g);
+            g += this.tick;
+        }
+    }
+
+    setInputValues(): void {
+        if (this.isRange){
+            if (!this.initValuePair){
+                this.initValuePair = this.min + " " + this.max;
+            }
+        }else{
+            if (!this.initValue) {
+               this.initValue = this.min;
             }
         }
     }
@@ -155,56 +185,36 @@ export class SliderComponent implements OnInit, AfterViewInit, OnChanges {
         }
     }
 
-    setDefaultState(): void {
-        if( (this.default_state.match(/^enabled$/) == null)&&
-            (this.default_state.match(/^disabled$/) == null) ){
-                this.default_state = 'enabled';
-            }
-    }
-
     initializeRangeIfRangeIsRequired(): void {
          if (this.isRange){
              this.multirange();
+             this.updateRange();
          }
     }
 
      multirange(): void {
-
-        var descriptor = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value");
-
-        Object.defineProperty(this.input, "originalValue", descriptor.get ? descriptor : {
-            get: function() { return this.value; },
-            set: function(v) { this.value = v; }
-        });
-
-        Object.defineProperties(this.input, {
-            valueLow: {
-                get: function() { return Math.min(this.input.originalValue, Number(this.ghost.getAttribute("value"))); },
-                set: function(v) { this.input.originalValue = v; },
-                enumerable: true
-            },
-            valueHigh: {
-                get: function() { return Math.max(this.input.originalValue, Number(this.ghost.getAttribute("value"))); },
-                set: function(v) { this.ghost.setAttribute("value", v); },
-                enumerable: true
-            }
-	    });
 
         let values = this.initValuePair.split(" "); 
 
         this.input.classList.add("multirange", "original");
 	    this.ghost.classList.add("multirange", "ghost");
 
-        this.input.setAttribute("value",  values[0] || (parseInt(this.minV) + (Number(this.maxV) - Number(this.minV)) / 2).toString());
-        this.ghost.setAttribute("value",  values[1] || (parseInt(this.minV) + (Number(this.maxV) - Number(this.minV)) / 2).toString());
+        this.input.setAttribute("value",  values[0] || (this.min + (this.max - this.min) / 2).toString());
+        this.ghost.setAttribute("value",  values[1] || (this.min + (this.max - this.min) / 2).toString());
 
         this.input.parentNode.insertBefore(this.ghost, this.input.nextSibling);
 
     }
 
-    update(): void {
-        this.ghost.style.setProperty("--low", 100 * ( ( Number(this.input.getAttribute("valueLow")) - Number(this.minV) ) / ( Number(this.maxV) - Number(this.minV) ) + 1) + "%");
-        this.ghost.style.setProperty("--high", 100 * ( ( Number(this.input.getAttribute("valueHigh")) - Number(this.minV) ) / ( Number(this.maxV) - Number(this.minV) ) - 1) + "%");  
+    updateRange(): void {
+        let v1 = (<HTMLInputElement>document.getElementById(this.uniqueID)).value;
+        let v2 = (<HTMLInputElement>document.getElementById(this.uniqueID + "_ghost")).value;
+
+        this.valueLow = Math.min(Number(v1), Number(v2));
+        this.valueHigh = Math.max(Number(v1), Number(v2));
+
+        this.ghost.style.setProperty("--low", (100 * ( ( Number(this.valueLow) - this.min ) / ( this.max - this.min )) + 1).toString() + "%");
+        this.ghost.style.setProperty("--high", (100 * ( ( Number(this.valueHigh) - this.min ) / ( this.max - this.min )) - 1).toString() + "%");  
     }
 
     inRange(): string{

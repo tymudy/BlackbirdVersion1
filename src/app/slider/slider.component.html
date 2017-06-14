@@ -16,7 +16,22 @@
                 min="{{min}}" 
                 max="{{max}}" 
                 step="{{step}}"
-                (change)="update()">
+                attr.list="{{tickmarks}}"
+                [(attr.valueLow)]="valueLow"
+                [(attr.valueHigh)]="valueHigh"
+                (input)="updateRange()">
+            <input id="{{uniqueID}}_ghost"
+                class="common {{handleShape}}" 
+                type="range" 
+                [attr.multiple]="inRange()"
+                attr.valuePair={{initValuePair}}
+                min="{{min}}" 
+                max="{{max}}" 
+                step="{{step}}"
+                attr.list="{{tickmarks}}"
+                [(attr.valueLow)]="valueLow"
+                [(attr.valueHigh)]="valueHigh"
+                (input)="updateRange()">
         </div>
     </ng-template>
     <ng-template #withoutRange>
@@ -27,7 +42,8 @@
                 value="{{initValue}}"
                 min="{{min}}" 
                 max="{{max}}" 
-                step="{{step}}">
+                step="{{step}}"
+                attr.list="{{tickmarks}}">
         </div>
     </ng-template>
     <div class="custom_addon_{{icon_display_right}}">
@@ -36,3 +52,6 @@
             </div>
         </div>
 </div>
+<datalist id="tickmarks">
+    <option *ngFor="let grad of gradiant" value="{{grad}}"></option>
+</datalist>

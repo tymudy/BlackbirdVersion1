@@ -30,7 +30,7 @@
 				transparent var(--low), var(--range-color) 0,
 				var(--range-color) var(--high), transparent 0
 			) no-repeat 0 45% / 100% 40%;
-		--range-color: blue;
+		--range-color: #8e8e91;
 	}
 
 	input[type="range"].multirange.ghost::-webkit-slider-runnable-track {
