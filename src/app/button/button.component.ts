@@ -31,6 +31,7 @@ export class ButtonComponent implements OnInit {
         this.setPropertiesValueIfUndefined();
         this.setIconAndLabelAlignPosition();
         this.setDefaultState();
+        this.setButtonSizeIfStretchIsDefined();
 
         if(this.onPress){
             this.printActionId(this.onPress);
@@ -69,16 +70,13 @@ export class ButtonComponent implements OnInit {
             this.icon_align = 'right'; 
         }
         if(!this.shape){
-            this.shape = 'rectangle';
+            this.shape = 'rounded-rectangle';
         }
         if(!this.type){
-            this.type = 'primary';
+            this.type = 'info';
         }
         if(!this.default_state){
             this.default_state = 'enabled';
-        }
-         if(!this.size){
-            this.size = 'size-regular';
         }
     }
 
@@ -112,6 +110,19 @@ export class ButtonComponent implements OnInit {
             (this.default_state.match(/^pressed$/) == null) ){
                 this.default_state = 'enabled';
             }
+    }
+
+    setButtonSizeIfStretchIsDefined(): void {
+        if(this.stretch){
+            this.size = '';
+            this.stretch = "stretch_" + this.stretch;
+        }else{
+            if(!this.size){
+                this.size = 'size-regular';
+            }
+            this.stretch = '';
+        }
+
     }
 
     printActionId(id: number): void {

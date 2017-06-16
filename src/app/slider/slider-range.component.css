@@ -21,6 +21,11 @@
 
 	input[type="range"].multirange::-moz-range-track {
 		border-color: transparent; /* needed to switch FF to "styleable" control */
+		border-radius: 5px;	
+		height: 8px;
+		vertical-align:middle;
+		border: none;
+		cursor: pointer;
 	}
 
 	input[type="range"].multirange.ghost {
@@ -29,8 +34,8 @@
 		--track-background: linear-gradient(to right,
 				transparent var(--low), var(--range-color) 0,
 				var(--range-color) var(--high), transparent 0
-			) no-repeat 0 45% / 100% 40%;
-		--range-color: #8e8e91;
+			);
+		--range-color: #7aa5db;
 	}
 
 	input[type="range"].multirange.ghost::-webkit-slider-runnable-track {

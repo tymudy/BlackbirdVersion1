@@ -1,17 +1,18 @@
-<div id="{{name}}" class="slider_container {{class}} {{orientation}} {{size}}">
+
+<div id="{{name}}" class="slider_default {{class}} {{orientation}} {{size}}">
     <div class="custom_addon_{{icon_display_left}}">
             <div class="btn_addon_left">
                 <i class="custom_icon_color {{minIcon}}"></i>
             </div>
     </div>
+
     <div *ngIf="isRange; then withRange else withoutRange"></div>
 
     <ng-template #withRange>
         <div class="custom_{{slider_display}}">
             <input id="{{uniqueID}}"
                 class="common {{handleShape}}" 
-                type="range" 
-                [attr.multiple]="inRange()"
+                type="range"
                 attr.valuePair={{initValuePair}}
                 min="{{min}}" 
                 max="{{max}}" 
@@ -23,7 +24,6 @@
             <input id="{{uniqueID}}_ghost"
                 class="common {{handleShape}}" 
                 type="range" 
-                [attr.multiple]="inRange()"
                 attr.valuePair={{initValuePair}}
                 min="{{min}}" 
                 max="{{max}}" 
@@ -37,20 +37,23 @@
     <ng-template #withoutRange>
         <div class="custom_{{slider_display}}">
             <input id="{{uniqueID}}"
-                class="common {{handleShape}}" 
+                class="singlerange common {{handleShape}}" 
                 type="range" 
                 value="{{initValue}}"
                 min="{{min}}" 
                 max="{{max}}" 
                 step="{{step}}"
-                attr.list="{{tickmarks}}">
+                attr.list="{{tickmarks}}"
+                [(attr.singleValue)]="singleValue"
+                (input)="updateSingleRange()">
         </div>
     </ng-template>
+
     <div class="custom_addon_{{icon_display_right}}">
             <div class="btn_addon_right">
                 <i class="custom_icon_color {{maxIcon}}"></i>
             </div>
-        </div>
+    </div>
 </div>
 <datalist id="tickmarks">
     <option *ngFor="let grad of gradiant" value="{{grad}}"></option>

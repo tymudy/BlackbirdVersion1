@@ -5,6 +5,7 @@ import { Component,
          AfterViewInit,
          EventEmitter} from '@angular/core';
 import { NgIf } from '@angular/common';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
     selector:'slider',
@@ -35,8 +36,11 @@ export class SliderComponent implements OnInit, AfterViewInit {
     @Input('onSlideEnd') onSlideEnd: number;
 
     uniqueID: string;
+
     valueLow: any;
     valueHigh: any;
+    singleValue: any;
+
     input: any;
     ghost: any;
 
@@ -189,6 +193,8 @@ export class SliderComponent implements OnInit, AfterViewInit {
          if (this.isRange){
              this.multirange();
              this.updateRange();
+         }else{
+             this.updateSingleRange();
          }
     }
 
@@ -217,14 +223,11 @@ export class SliderComponent implements OnInit, AfterViewInit {
         this.ghost.style.setProperty("--high", (100 * ( ( Number(this.valueHigh) - this.min ) / ( this.max - this.min )) - 1).toString() + "%");  
     }
 
-    inRange(): string{
-        let range;
-        if (this.isRange){
-            range = '';
-        }else{
-            range = null;
-        }
-        return range;
+    updateSingleRange(): void{
+        let v = (<HTMLInputElement>document.getElementById(this.uniqueID)).value;
+
+        this.singleValue = Number(v);
+        this.input.style.setProperty("--handle", (100 * ( ( Number(this.singleValue) - this.min ) / ( this.max - this.min )) + 1).toString() + "%");
     }
 
     printActionId(id: number): void {
