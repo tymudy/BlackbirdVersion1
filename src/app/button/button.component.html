@@ -1,10 +1,24 @@
-<div class="{{size}} {{stretch}}">
-    <div id="{{name}}" class="btn_container {{shape}} {{class}} {{type}} {{orientation}} {{default_state}}">
-        <div class="custom_btn_{{label_align}}">
-            <label class="btn_label">{{label}}</label>
+<div *ngIf="isDisplayIconLeft; then displayIconLeft"> </div>
+<div *ngIf="isDisplayIconRight; then displayIconRight"> </div>
+<div *ngIf="isDisplayDefault; then displayDefault"> </div>
+    
+    <ng-template #displayIconLeft>
+        <div id="{{name}}" class="btn_container {{size}} {{stretch}} {{shape}} {{class}} {{type}} {{orientation}} {{default_state}}">
+            <i class="btn_addon custom_addon {{icon}}"></i>
+            <label class="btn_label custom_label">{{label}}</label>
         </div>
-        <div class="custom_addon_{{icon_align}}">
-            <i class="btn_addon {{icon}}"></i>
+    </ng-template>
+    
+    <ng-template #displayIconRight>
+        <div id="{{name}}" class="btn_container {{size}} {{stretch}} {{shape}} {{class}} {{type}} {{orientation}} {{default_state}}">
+            <label class="btn_label custom_label">{{label}}</label>
+            <i class="btn_addon custom_addon {{icon}}"></i>
         </div>
-    </div>
-</div>
+    </ng-template>
+
+    <ng-template #displayDefault>
+        <div id="{{name}}" class="btn_container {{size}} {{shape}} {{stretch}} {{class}} {{type}} {{orientation}} {{default_state}}">
+            <label class="btn_label custom_label">{{label}}</label>
+        </div>
+    </ng-template>
+

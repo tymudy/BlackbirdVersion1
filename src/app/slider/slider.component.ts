@@ -1,9 +1,7 @@
 import { Component,
          Input, 
-         Output,
          OnInit,
-         AfterViewInit,
-         EventEmitter} from '@angular/core';
+         AfterViewInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
 
@@ -51,15 +49,20 @@ export class SliderComponent implements OnInit, AfterViewInit {
     gradiant: any = [];
     tickmarks: string;
 
+    rotate_icon: string;
+
     constructor() {
     }
 
     ngOnInit (): void {
 
-        this.uniqueID = "id_" + Date.now();
-
         this.setPropertiesValueIfUndefined();
+
+        this.uniqueID = this.name + Date.now();
+
+        this.setSliderSizeIfStretchIsDefined();
         this.setIconsIfUndefined();
+        this.setIconRotation();
         this.setMinMaxValues();
         this.setInputValues();
         this.setDefaultState();
@@ -98,14 +101,29 @@ export class SliderComponent implements OnInit, AfterViewInit {
         if(!this.handleShape){
             this.handleShape = 'circle';
         }
-        if(!this.size){
-            this.size = 'size-regular';
-        }
         if(!this.isRange){
             this.isRange = false;
         }
         if(!this.default_state){
             this.default_state = 'enabled';
+        }
+    }
+
+    setSliderSizeIfStretchIsDefined(): void{
+        if (this.stretch){
+            this.size = 'size-small';
+            this.stretch = 'stretch_' + this.stretch;
+        }else{
+            this.stretch = '';
+            if(!this.size){
+                this.size = 'size-small';
+            }
+        }
+    }
+
+    setIconRotation(): void {
+        if ( this.orientation.match(/^vertical$/) != null ){
+            this.rotate_icon = 'rotate';
         }
     }
 
@@ -143,12 +161,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
     }
 
     setTick(): void {
-        if(this.tick){
-            this.populateGradiant();
-            this.tickmarks = 'tickmarks';
-        }else{
-            this.tickmarks = '';
-        }
+
     }
 
     populateGradiant(): void{
@@ -165,7 +178,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
                 this.initValuePair = this.min + " " + this.max;
             }
         }else{
-            if (!this.initValue) {
+            if (!this.initValue || this.initValue < this.min) {
                this.initValue = this.min;
             }
         }

@@ -1,0 +1,17 @@
+list-component,
+[listComponent]{
+  width: 25%;
+  float: left;
+  margin-top: 5%;
+  height: 65%;
+  border: 1px solid rgb(50,54,56);
+  border: 1px solid rgba(50,54,56, .1);
+  -webkit-background-clip: padding-box; 
+  background-clip: padding-box; 
+  margin: 5% 4%;
+}
+
+list-component:hover,
+[listComponent]:hover {
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+}

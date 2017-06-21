@@ -1,27 +1,35 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {RouteReuseStrategy, RouterModule} from '@angular/router';
-import {NgModule} from '@angular/core';
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {ROUTES} from './route/routes';
 
-import { BusyModule } from 'angular2-busy';
+import {BusyModule} from 'angular2-busy';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { CustomRouteReuseStrategy } from './route-reuse.strategy';
-import { VirtualScrollModule } from './virtual-scroll';
+import {VirtualScrollModule} from './virtual-scroll';
 
 import { AppComponent } from './app.component';
 import { SongsComponent } from './songs/songs.component';
 import { ButtonComponent } from './button/button.component';
-import { ListSongComponent } from './songs/list-song.component';
-import { SliderComponent } from './slider/slider.component';
+import {ListSongComponent} from './songs/list-song.component';
+import {ListComponent} from './list/list.component';
+import {ListItemComponent} from './list/list-item.component';
+import {SliderComponent} from './slider/slider.component';
+import {GalleryComponent} from './gallery/gallery.component';
+import {GalleryButtonComponent} from './gallery/gallery-button/gallery-button.component';
+import {GalleryListComponent} from './gallery/gallery-list/gallery-list.component';
+import {GallerySliderComponent} from './gallery/gallery-slider/gallery-slider.component';
+
+import {ListService} from './list/list.service';
+
+import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
+
+import {TemplateRendererDirective} from './list/template-renderer.directive';
 
 import { enableProdMode } from '@angular/core';
-
 enableProdMode();
-
-/*import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';*/
 
 @NgModule({
   declarations: [
@@ -29,22 +37,27 @@ enableProdMode();
     SongsComponent,
     ButtonComponent,
     SliderComponent,
-    ListSongComponent
+    ListSongComponent,
+    ListComponent,
+    ListItemComponent,
+    GalleryComponent,
+    GalleryButtonComponent,
+    GalleryListComponent,
+    GallerySliderComponent,
+    TemplateRendererDirective
   ],
   imports: [
-   /* AngularFontAwesomeModule,*/
+    AngularFontAwesomeModule,
     BrowserModule,
     BusyModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     VirtualScrollModule,
-    RouterModule.forRoot(ROUTES, {useHash: true})
+    RouterModule.forRoot(ROUTES, { useHash: true})
   ],
-  providers: [{
-    provide: [RouteReuseStrategy],
-    useClass: CustomRouteReuseStrategy
-  }],
+  providers: [ListService],
+  schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

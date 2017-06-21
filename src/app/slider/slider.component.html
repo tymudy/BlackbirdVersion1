@@ -1,8 +1,7 @@
-
-<div id="{{name}}" class="slider_default {{class}} {{orientation}} {{size}}">
+<div id="{{name}}" class="slider_default {{stretch}} {{class}} {{orientation}} {{size}}">
     <div class="custom_addon_{{icon_display_left}}">
             <div class="btn_addon_left">
-                <i class="custom_icon_color {{minIcon}}"></i>
+                <i class="custom_icon_color {{minIcon}} {{rotate_icon}}"></i>
             </div>
     </div>
 
@@ -51,10 +50,7 @@
 
     <div class="custom_addon_{{icon_display_right}}">
             <div class="btn_addon_right">
-                <i class="custom_icon_color {{maxIcon}}"></i>
+                <i class="custom_icon_color {{maxIcon}} {{rotate_icon}}"></i>
             </div>
     </div>
 </div>
-<datalist id="tickmarks">
-    <option *ngFor="let grad of gradiant" value="{{grad}}"></option>
-</datalist>

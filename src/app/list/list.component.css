@@ -1,0 +1,19 @@
+.list{
+  font-family: sans-serif;
+  width: 60%;
+  height: 80%;
+  position: relative;
+  margin: 0 auto;
+}
+
+h1{
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  font-weight: 100;
+}
+
+.list-content {
+  float: left;
+  width: 100%;
+}

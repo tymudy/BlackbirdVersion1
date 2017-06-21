@@ -1,11 +1,13 @@
 import { Component, 
          Input,
-         OnInit } from '@angular/core';
+         OnInit,
+         ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector:'btn',
     templateUrl:'./button.component.html',
-    styleUrls:['./button.component.css']
+    styleUrls:['./button.component.css'],
+    encapsulation: ViewEncapsulation.None
 })
 export class ButtonComponent implements OnInit {
     @Input('name') name : string;
@@ -25,13 +27,15 @@ export class ButtonComponent implements OnInit {
     @Input('stretch') stretch: string;
     @Input('orientation') orientation: string;
 
-    label_align: string;
+    isDisplayIconLeft: boolean;
+    isDisplayIconRight: boolean;
+    isDisplayDefault: boolean;
 
     ngOnInit (): void {
         this.setPropertiesValueIfUndefined();
         this.setIconAndLabelAlignPosition();
         this.setDefaultState();
-        this.setButtonSizeIfStretchIsDefined();
+        this.setButtonSize();
 
         if(this.onPress){
             this.printActionId(this.onPress);
@@ -80,27 +84,28 @@ export class ButtonComponent implements OnInit {
         }
     }
 
-    removeIcon(): void {
-        this.icon='display_none';
-        this.label_align = 'default';
-        this.icon_align = '';
-    }
-
     setIconAndLabelAlignPosition(): void {
         if(this.icon){
             if ( (this.icon_align.match(/^right$/) == null) &&
                  (this.icon_align.match(/^left$/) == null) ){
-                this.icon_align = 'right';
-                this.label_align = 'left';
+                this.isDisplayIconRight = true;
+                this.isDisplayIconLeft = false;
+                this.isDisplayDefault = false;
             }else{
                 if (this.icon_align.indexOf('right') >= 0){
-                    this.label_align = 'left';
+                    this.isDisplayIconRight = true;
+                    this.isDisplayIconLeft = false;
+                    this.isDisplayDefault = false;
                 } else if (this.icon_align.indexOf('left') >= 0) {
-                    this.label_align = 'right';
+                    this.isDisplayIconLeft = true;
+                    this.isDisplayIconRight = false;
+                    this.isDisplayDefault = false;
                 } 
             }
         }else{
-            this.removeIcon();
+            this.isDisplayDefault = true;
+            this.isDisplayIconLeft = false;
+            this.isDisplayIconRight = false;
         }
     }
 
@@ -112,17 +117,39 @@ export class ButtonComponent implements OnInit {
             }
     }
 
-    setButtonSizeIfStretchIsDefined(): void {
+    //if stretch and size are set, size will be deprecated
+    //if stretch is set, it will be deprecated for circle and oval shapes
+    setButtonSize() : void {
         if(this.stretch){
-            this.size = '';
-            this.stretch = "stretch_" + this.stretch;
+            if( (this.shape.match(/^circle$/) != null ) &&
+                (this.shape.match(/^oval$/) != null) ){
+                    this.stretch = '';
+            }else{
+                    this.size = '';
+                    this.stretch = "stretch_" + this.stretch;
+            }
         }else{
-            if(!this.size){
-                this.size = 'size-regular';
+            switch(this.size){
+                case "x-small": {
+                    this.size = "btn-xs";
+                    break;
+                }
+                case "small": {
+                    this.size = "btn-sm";
+                    break;
+                }
+                case "regular": {
+                    this.size = "btn-sm";
+                    break;
+                }
+                case "large" || "x-large" : {
+                    this.size = "btn-lg";
+                    break;
+                }
+                default: this.size = '';
             }
             this.stretch = '';
         }
-
     }
 
     printActionId(id: number): void {
