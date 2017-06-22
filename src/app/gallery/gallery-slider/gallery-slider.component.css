@@ -1,4 +1,13 @@
-.container{
+.slider_wrapper{
+    position: relative;
+    display: block;
+    width: 90%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider_container{
   width: 15%;
   height: 15%;
   min-width: 600px;
@@ -12,7 +21,7 @@
   margin: 5% 4%;
 }
 
-.container:hover {
+.slider_container:hover {
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -21,20 +30,25 @@ h5 {
     text-align: center;
 }
 
-.crestron_container {
+.crestron_slider_container {
+    position: relative;
     display: block;
-    margin: 0px;
     margin-left: auto;
     margin-right: auto;
     width: 400px;
     height: 100px;
+    text-align: center;
 }
 
-slider{
-    margin-left: 5%;
-    margin-top: 20%;
+.crestron_slider_container .slider_default{
+    display: inline-block;
+    position: relative;
+    top: 50%; 
+    /* transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);*/
+  
 }
 
-.slider_default{
-    margin-top: 20%;
+.crestron_slider_container .vertical{
+  margin-top: 10%;
 }

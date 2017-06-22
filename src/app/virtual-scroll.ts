@@ -72,9 +72,6 @@ export class VirtualScrollComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   childHeight: number;
 
-  @Input()
-  totalItemsLength: number;
-
   @Output()
   update: EventEmitter<any[]> = new EventEmitter<any[]>();
 
@@ -172,14 +169,13 @@ export class VirtualScrollComponent implements OnInit, OnDestroy, OnChanges {
 
     let contentDimensions;
     if (this.childWidth == undefined || this.childHeight == undefined) {
-      contentDimensions = content.children[0] ? content.children[0].getBoundingClientRect() : {
+      contentDimensions = content.children[1] ? content.children[1].getBoundingClientRect() : {
         width: viewWidth,
         height: viewHeight
       };
     }
     let childWidth = this.childWidth || contentDimensions.width;
     let childHeight = this.childHeight || contentDimensions.height;
-
     let itemsPerRow = Math.max(1, this.countItemsPerRow());
     let itemsPerRowByCalc = Math.max(1, Math.floor(viewWidth / childWidth));
     let itemsPerCol = Math.max(1, Math.floor(viewHeight / childHeight));
@@ -187,7 +183,6 @@ export class VirtualScrollComponent implements OnInit, OnDestroy, OnChanges {
     if (itemsPerCol === 1 && Math.floor(scrollTop / this.scrollHeight * itemCount) + itemsPerRowByCalc >= itemCount) {
       itemsPerRow = itemsPerRowByCalc;
     }
-
     return {
       itemCount: itemCount,
       viewWidth: viewWidth,
@@ -235,9 +230,8 @@ export class VirtualScrollComponent implements OnInit, OnDestroy, OnChanges {
       if (start !== this.previousStart && this.startupLoop === false) {
         this.start.emit({ start, end });
       }
-
       // emit 'end' event
-      if (end !== this.previousEnd && this.startupLoop === false || end !== this.totalItemsLength) {
+      if (end !== this.previousEnd && this.startupLoop === false) {
         this.end.emit({ start, end });
       }
 

@@ -8,7 +8,7 @@
     <span>({{scrollItems?.length}} nodes)</span>
   </div>
 
-  <virtual-scroll [items]="buffer" [totalItemsLength]="totalItemsLength" (update)="scrollItems = $event" (end)="fetchMore($event)">
+  <virtual-scroll [items]="buffer" (update)="scrollItems = $event" (end)="fetchMore($event)">
     <list-item *ngFor="let item of scrollItems" [item]="item" (click)="onFstSelect(item)"> </list-item>
   </virtual-scroll>
 

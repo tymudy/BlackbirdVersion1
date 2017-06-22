@@ -11,7 +11,7 @@
       },
       {
         "name": "Spec",
-        "url": "list"
+        "url": "spec"
       }
     ]
   },
@@ -23,11 +23,11 @@
     "submenu": [
       {
         "name": "Design",
-        "url": "button"
+        "url": "list"
       },
       {
         "name": "Spec",
-        "url": "list"
+        "url": "spec"
       }
     ]
   },
@@ -43,23 +43,7 @@
       },
       {
         "name": "Spec",
-        "url": "list"
-      }
-    ]
-  },
-  {
-    "index": 3,
-    "name": "CONTROL GROUP",
-    "img_url": "assets/images/crestron-21.png",
-    "img_url_active": "assets/images/crestron-24.png",
-    "submenu": [
-      {
-        "name": "Design",
-        "url": "button"
-      },
-      {
-        "name": "Spec",
-        "url": "list"
+        "url": "spec"
       }
     ]
   },
@@ -71,11 +55,11 @@
     "submenu": [
       {
         "name": "Design",
-        "url": "button"
+        "url": "video"
       },
       {
         "name": "Spec",
-        "url": "list"
+        "url": "spec"
       }
     ]
   }

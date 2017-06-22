@@ -268,11 +268,11 @@
 
 /* Slider Orientation */
  .vertical {
-     transform: rotate(90deg);
+     transform: rotate(-90deg);
  }
 
  .rotate {
-     transform: rotate(90deg);
+     transform: rotate(-90deg);
  }
 
 /* Icons Style */
@@ -282,4 +282,12 @@
 
   .custom_icon_color:hover {
       color: #d6dbd6;
+  }
+
+  /* Slider Custom Tick */
+
+  li {
+      float: left;
+      width: 10px;
+      margin-left: 5px;
   }

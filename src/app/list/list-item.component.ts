@@ -1,25 +1,36 @@
-import { Component, Input } from '@angular/core';
-import { ButtonComponent } from '../button/button.component';
+import {Component, Input, OnInit, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentRef} from '@angular/core';
+import * as component_type from '../constants/component_type';
 
 @Component({
   selector: 'list-item-component',
   template: `
-    <div *templateRenderer="500 * item" class="item">
-      {{item}}
-    </div>
-  `,
-  styles: [`
-    .item {
-      padding: 2rem;
-      font-size: 2rem;
-      font-family: 'Helvetica', sans-serif;
-      font-weight: 300;
-      background: #e3f2fd;
-      margin: 1rem;
-      display: inline-block;
-    }
-  `]
+    <div #itemContainer></div>
+  `
 })
-export class ListItemComponent {
-  @Input() item: any;
+export class ListItemComponent implements OnInit{
+  @Input() item: any[];
+  @Input() type: any;
+
+  @ViewChild('itemContainer', {read: ViewContainerRef})
+  itemContainer: ViewContainerRef;
+
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
+
+  ngOnInit(): void {
+    console.log(component_type.types[this.type], this.item);
+    this.createItem(component_type.types[this.type], this.item);
+
+  }
+
+  createItem( component: any, attributes: any[]): void {
+
+    const childComponent = this.componentFactoryResolver.resolveComponentFactory(component);
+    let componentRef: ComponentRef<any> = this.itemContainer.createComponent(childComponent);
+
+    attributes.forEach( (element, index) => {
+      componentRef.instance[element['key']] = element['value'];
+    });
+
+  }
+
 }

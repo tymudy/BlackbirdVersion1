@@ -31,9 +31,12 @@ export class ButtonComponent implements OnInit {
     isDisplayIconRight: boolean;
     isDisplayDefault: boolean;
 
+    rotate_icon: string;
+
     ngOnInit (): void {
         this.setPropertiesValueIfUndefined();
         this.setIconAndLabelAlignPosition();
+        this.setIconRotation();
         this.setDefaultState();
         this.setButtonSize();
 
@@ -115,6 +118,12 @@ export class ButtonComponent implements OnInit {
             (this.default_state.match(/^pressed$/) == null) ){
                 this.default_state = 'enabled';
             }
+    }
+
+    setIconRotation(): void {
+        if ( this.orientation.match(/^vertical$/) != null ){
+            this.rotate_icon = 'rotate';
+        }
     }
 
     //if stretch and size are set, size will be deprecated

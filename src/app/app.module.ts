@@ -21,19 +21,22 @@ import {GalleryComponent} from './gallery/gallery.component';
 import {GalleryButtonComponent} from './gallery/gallery-button/gallery-button.component';
 import {GalleryListComponent} from './gallery/gallery-list/gallery-list.component';
 import {GallerySliderComponent} from './gallery/gallery-slider/gallery-slider.component';
-
-import {ListService} from './list/list.service';
+import {GallerySpecComponent} from './gallery/gallery-spec/spec-list.component';
 
 import { AngularFontAwesomeModule } from 'angular-font-awesome/angular-font-awesome';
 
-import {TemplateRendererDirective} from './list/template-renderer.directive';
 
 import { enableProdMode } from '@angular/core';
 enableProdMode();
 
+import {VideoComponent} from './video/video.component';
+import {WindowRefService} from './video/WindowRefService';
+import {ShareService} from './share/shareService';
+
 @NgModule({
   declarations: [
     AppComponent,
+    SongsComponent,
     SongsComponent,
     ButtonComponent,
     SliderComponent,
@@ -44,7 +47,9 @@ enableProdMode();
     GalleryButtonComponent,
     GalleryListComponent,
     GallerySliderComponent,
-    TemplateRendererDirective
+    ListSongComponent,
+    GallerySpecComponent,
+    VideoComponent
   ],
   imports: [
     AngularFontAwesomeModule,
@@ -56,7 +61,8 @@ enableProdMode();
     VirtualScrollModule,
     RouterModule.forRoot(ROUTES, { useHash: true})
   ],
-  providers: [ListService],
+  providers: [WindowRefService, ShareService],
+  entryComponents: [ButtonComponent, SliderComponent],
   schemas: [ NO_ERRORS_SCHEMA ],
   bootstrap: [AppComponent]
 })

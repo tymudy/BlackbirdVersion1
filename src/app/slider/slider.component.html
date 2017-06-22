@@ -46,6 +46,9 @@
                 [(attr.singleValue)]="singleValue"
                 (input)="updateSingleRange()">
         </div>
+            <ul class="tickmarks">
+                <li *ngFor='let grad of gradiant; let i=index' [id]="i"></li>
+            </ul>
     </ng-template>
 
     <div class="custom_addon_{{icon_display_right}}">

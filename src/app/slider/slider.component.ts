@@ -60,6 +60,7 @@ export class SliderComponent implements OnInit, AfterViewInit {
 
         this.uniqueID = this.name + Date.now();
 
+        this.setTick();
         this.setSliderSizeIfStretchIsDefined();
         this.setIconsIfUndefined();
         this.setIconRotation();
@@ -161,7 +162,12 @@ export class SliderComponent implements OnInit, AfterViewInit {
     }
 
     setTick(): void {
-
+        if (!this.tick){
+            this.tick = 0;
+            this.gradiant = [];
+        }else{
+            this.populateGradiant();
+        }
     }
 
     populateGradiant(): void{

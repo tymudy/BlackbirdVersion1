@@ -1,14 +1,16 @@
-import {Component, Input, ComponentFactoryResolver, ViewChild, ViewContainerRef, AfterViewInit, OnInit, NgModule, Compiler, ModuleWithComponentFactories, ComponentFactory} from '@angular/core';
-import {ListService} from './list.service';
-import { ButtonComponent } from '../button/button.component';
+import {
+  Component, Input, OnInit, SimpleChanges, OnChanges
+} from '@angular/core';
+import {Http} from '@angular/http';
+import {ShareService} from '../share/shareService';
+import {ChangeEvent} from '../virtual-scroll';
 
 @Component({
   selector: 'list-component',
   templateUrl: './list.component.html',
-  styleUrls: ['list.component.css'],
-  providers: [ButtonComponent]
+  styleUrls: ['list.component.css']
 })
-export class ListComponent implements OnInit{
+export class ListComponent implements OnInit, OnChanges {
   @Input('name') name: string;
   @Input('load_type') load_type:string;
   @Input('page_size') page_size: number;
@@ -20,23 +22,51 @@ export class ListComponent implements OnInit{
   @Input('header') header: string;
   @Input('footer') footer: string;
 
-  private template: string = `<btn  [name]="'Button'"
-      [label]="'Title'"
-      [class]="'MyClass'"
-      [icon]="'plus'"
-      [shape]="'rounded-rectangle'">
-  </btn>`;
 
-  @ViewChild('listcontainer', {read: ViewContainerRef})listContainer: ViewContainerRef;
+  firstListType: string;
+  firstListAttributes: any[] = [];
+  secondListAttributes: any[] = [];
+  firstListItems: any[] = [];
+  indices: ChangeEvent;
+  readonly bufferSize: number = 12;
 
-  private itemsList: any[] = [this.template, this.template];
+  constructor(private http: Http, private shareService: ShareService) {}
 
-  constructor(private listService: ListService, private componentFactoryResolver: ComponentFactoryResolver, private compiler: Compiler) {}
-
-  ngOnInit (): void {
+  getItemsForTheFirstScrollableList() {
+    this.shareService.getData('assets/slider_list.json').subscribe((data: any) => {
+      this.firstListItems = data.attributes;
+      this.firstListType = data.type;
+      this.firstListAttributes = this.firstListItems.slice(0, this.bufferSize);
+    });
   }
 
-  addNewItem() {
-    this.itemsList.push(this.itemsList.length + 1);
+  getItemsForTheSecondScrollableList() {
+    this.shareService.getData('assets/slider_button_list.json').subscribe((data: any) => {
+      console.log('asta',data);
+      this.secondListAttributes = data.items;
+      console.log(this.secondListAttributes);
+    });
+  }
+
+  fetchMore(event: ChangeEvent) {
+    this.indices = event;
+    if (event.end === this.firstListAttributes.length) {
+      if (this.firstListAttributes.length < this.firstListItems.length) {
+        this.firstListAttributes = this.firstListAttributes.concat(this.firstListItems.slice(this.firstListAttributes.length, this.firstListAttributes.length + this.bufferSize));
+      }
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.reset();
+  }
+
+  reset() {
+    this.firstListAttributes = this.firstListItems.slice(0, this.bufferSize);
+  }
+
+  ngOnInit (): void {
+    this.getItemsForTheFirstScrollableList();
+    this.getItemsForTheSecondScrollableList();
   }
 }
