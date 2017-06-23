@@ -6,8 +6,10 @@
                         <slider [name]="'sliderSimple'"
                               [initValue]="'30'"
                               [min]="20"
-                              [step]="15"
-                              [tick]="10">
+                              [max]="120"
+                              [step]="10"
+                              [tick]="20"
+                              [handleShape]="'rectangle'">
                         </slider>
                   </div>
             </div>
@@ -20,7 +22,7 @@
                               [initValue]="'20'"
                               [initValuePair]="'30 60'"
                               [min]="20"
-                              [step]="15">
+                              [step]="10">
                         </slider>
                   </div>
             </div>
@@ -33,7 +35,9 @@
                               [initValue]="'30'"
                               [min]="20"
                               [minIcon]="'fa fa-minus'"
-                              [maxIcon]="'fa fa-plus'">
+                              [maxIcon]="'fa fa-plus'"
+                              [step]="20"
+                              [tick]="20">
                         </slider>
                   </div>
             </div>

@@ -227,6 +227,7 @@
 	}
 
 
+
 /* Slider Size */
 .size-x-small {
     width: 200px;
@@ -284,10 +285,16 @@
       color: #d6dbd6;
   }
 
-  /* Slider Custom Tick */
+.tickmarks {
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
-  li {
-      float: left;
-      width: 10px;
-      margin-left: 5px;
-  }
+.tickmarks td {
+    color: transparent;
+    border-left: 1px solid white;
+}

@@ -35,6 +35,9 @@
     </ng-template>
     <ng-template #withoutRange>
         <div class="custom_{{slider_display}}">
+            <table *ngIf="isTick" class="tickmarks">
+                <tr><td *ngFor='let grad of gradiant' class="text-center"><i class="fa fa-circle"></i></td></tr>
+            </table>
             <input id="{{uniqueID}}"
                 class="singlerange common {{handleShape}}" 
                 type="range" 
@@ -46,11 +49,7 @@
                 [(attr.singleValue)]="singleValue"
                 (input)="updateSingleRange()">
         </div>
-            <ul class="tickmarks">
-                <li *ngFor='let grad of gradiant; let i=index' [id]="i"></li>
-            </ul>
     </ng-template>
-
     <div class="custom_addon_{{icon_display_right}}">
             <div class="btn_addon_right">
                 <i class="custom_icon_color {{maxIcon}} {{rotate_icon}}"></i>

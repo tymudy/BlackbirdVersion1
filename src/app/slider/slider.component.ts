@@ -46,8 +46,8 @@ export class SliderComponent implements OnInit, AfterViewInit {
     icon_display_right: string;
     slider_display: string;
 
-    gradiant: any = [];
-    tickmarks: string;
+    gradiant: any;
+    isTick: boolean;
 
     rotate_icon: string;
 
@@ -162,20 +162,25 @@ export class SliderComponent implements OnInit, AfterViewInit {
     }
 
     setTick(): void {
+        this.gradiant = [];
+
         if (!this.tick){
             this.tick = 0;
-            this.gradiant = [];
+            this.isTick = false;
         }else{
+            this.isTick = true;
             this.populateGradiant();
         }
     }
 
     populateGradiant(): void{
         let g = this.min;
-        while(g <= this.max){
+        while(g < this.max){
             this.gradiant.push(g);
             g += this.tick;
         }
+        this.gradiant.pop();
+        // this.gradiant.pop();
     }
 
     setInputValues(): void {
