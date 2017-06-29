@@ -1,0 +1,212 @@
+/* Button icon align */
+.btn_container,
+.custom_label,
+.custom_addon {
+    position: relative;
+    width: auto;
+    display: inline-block;
+}
+
+.custom_btn_default {
+    position: relative;
+    width: auto;
+    height: auto;
+}
+
+.btn_addon, .btn_label{
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+/* Button container on hover */
+.btn_container:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 3px 8px rgba(0,0,0,.4);
+}
+
+/* Button container shapes */
+.rectangle {
+   border-radius: 0px;
+   -moz-border-radius: 0px;
+   -webkit-border-radius: 0px;
+}
+
+.rounded-rectangle {  
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.circle{
+    min-width: 30px;
+    max-width: 600px;
+    text-decoration: none;
+    display: inline-block;
+    outline: none;
+    border-style: none;
+    border-radius: 50%;
+    overflow: none;
+    text-align: center;
+    padding:0;
+}
+
+.circle:before {
+    content:'';
+    display:inline-block;;
+    vertical-align:middle;
+    padding-top:100%;
+}
+
+.oval {
+    border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+}
+
+.tab { 
+    border-radius: 10px 10px 0px 0px;
+    -moz-border-radius: 10px 10px 0px 0px;
+    -webkit-border-radius: 10px 10px 0px 0px;
+}
+
+/* Button stretch */
+    /* stretch does not apply for circle and oval shapes */
+
+/* by width */
+.stretch_width.btn_container{
+    width: 100%;
+    height: auto;
+}
+.stretch_width label{
+    width: auto;
+    float: left;
+}
+.stretch_width i{
+    width: auto;
+    float: right;
+}
+/* by height */
+.stretch_height{
+    height: 100%;
+    font-size: 1.5em;
+}
+.stretch_height label,
+.stretch_height i{
+    position: relative;
+    top: 50%; 
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+/* by height and width */
+.stretch_both{
+    width: 100%;
+    height: 100%;
+    font-size: 2em;
+}
+.stretch_both label{
+    width:auto;
+    float:left;
+    position: relative;
+    top: 50%; 
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+.stretch_both i{
+    width:auto;
+    float:right;
+    position: relative;
+    top: 50%; 
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+/* Button types */
+.text {
+    border: 1px solid black;
+    background-color: #f0fff0;
+    color: black; 
+}
+
+.text:hover{
+    background-color:black;
+    color:#f0fff0;
+}
+
+.danger {
+    border: .5px solid #c12d2d;
+    background-color: #dd3333;
+    color: #f0fff0;  
+}
+
+.danger:hover{
+    background-color: #db4c4c;
+    color: #f0fff0; 
+}
+
+.warning {
+    border: .5px solid #e77312;
+    background-color: #ec842f;
+    color: #f0fff0; 
+}
+
+.warning:hover {
+    background-color: #e29453;
+    color: #f0fff0; 
+}
+
+.info {
+    border: .5px solid #588ed3;
+    background-color: #588ed3;
+    color: #f0fff0;
+}
+
+.info:hover {
+    background-color: #7aa5db;
+    color: #f0fff0;
+}
+
+.success {
+    border: .5px solid #508b17;
+    background-color: #3ca543;
+    color:#f0fff0;
+}
+
+.success:hover {
+    background-color: #5bad61;
+    color: #f0fff0;
+}
+
+.primary {
+    border: .5px solid #8e8e91;
+    background-color: #9a9a9e;
+    color: #f0fff0;
+}
+
+.primary:hover {
+    background-color: #aeaeb2;
+    color:#f0fff0;
+}
+
+.secondary {
+    border: .5px solid #4e4e7c;
+    background-color: #68688d;
+    color: #f0fff0;
+}
+
+.secondary:hover {
+    background-color: #77778e;
+    color: #f0fff0;
+}
+
+/* Button orientation */
+ .vertical {
+     transform: rotate(-90deg);
+ }
+
+ .vertical:hover {
+     transform: rotate(-90deg);
+ }
+
+ .rotate {
+     transform: rotate(-90deg);
+ }

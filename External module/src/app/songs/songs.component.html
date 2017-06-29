@@ -1,0 +1,32 @@
+<div class="full-size">
+  <div [ngBusy]="fstListBusy"></div>
+
+  <div class="status">
+    Showing <span class="badge">{{indices?.start + 1}}</span>
+    - <span class="badge">{{indices?.end}}</span>
+    of <span class="badge">{{buffer?.length}}</span>
+    <span>({{scrollItems?.length}} nodes)</span>
+  </div>
+
+  <virtual-scroll [items]="buffer" (update)="scrollItems = $event" (end)="fetchMore($event)">
+    <list-item *ngFor="let item of scrollItems" [item]="item" (click)="onFstSelect(item)"> </list-item>
+  </virtual-scroll>
+
+  <div [ngClass]="{'transform-active': isSelectedSong}"
+       class="col-xs-10 player-right-container padding-left-3bl padding-right-6bl padding-bottom-lg padding-top-lg player-container transform">
+    <div *ngIf="selectedSong">
+      <div>
+        <img (click)="onFstGoBack()" src="../../assets/images/fileclose.png" alt="close" class="close-img"/>
+      </div>
+
+    <div class="row">
+      <img [src]="selectedSong.image[3]['#text']" alt="Image"/>
+    </div>
+
+    <div class="row">
+      {{ selectedSong.artist }}
+      <h3>{{ selectedSong.name }}</h3>
+    </div>
+
+  </div>
+</div>

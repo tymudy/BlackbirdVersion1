@@ -1,0 +1,23 @@
+<div class="layout-wrapper">
+  <div id="layout-sidebar"  [ngClass]="{'slide': !menuClosed}">
+    <span class="layout-logo">
+      <img [src]="menuClosed? 'assets/images/crestron_crestron_small.png' : 'assets/images/crestron-07.png'" />
+      <img [src]="menuClosed ? 'assets/images/crestron-09.png' : 'assets/images/crestron-08.png'" class="menu-slide" (click)="toggleMenu()" *ngIf="selectedMenuItemIndex === -1"/>
+    </span>
+    <div *ngFor="let item of menuItems" class="gallery_item">
+      <a (click) = "toggleMenuItem(item)" [ngClass]="{'active': selectedMenuItemIndex.index === item.index}">
+        <span class="helper"></span><img [src]="selectedMenuItemIndex.index === item.index ? item.img_url_active : item.img_url" />
+        <span class="name" *ngIf="!menuClosed">{{item.name}}</span>
+      </a>
+      <div [ngClass]="{'submenuhide': selectedMenuItemIndex.index !== item.index, 'submenushow': selectedMenuItemIndex.index === item.index}">
+        <a routerLink="../gallery/{{subItem.url}}" *ngFor="let subItem of item.submenu" [routerLinkActive]="['text-decoration']">{{subItem.name}}</a>
+      </div>
+    </div>
+  </div>
+  <div id="layout-content" [ngClass]="{'slide': !menuClosed}">
+    <div id="header-content">
+      <span>{{selectedMenuItemIndex.name}}</span>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

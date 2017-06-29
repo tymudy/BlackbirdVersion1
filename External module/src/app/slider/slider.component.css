@@ -1,0 +1,300 @@
+ /* Slider Container */
+  .slider_default {
+    position: relative;
+    height: 50px;
+    border: .5px solid #588ed3;
+    background-color: #588ed3;
+    border-radius: 5px;
+    padding: 0px;
+  }
+
+/* Slider Components */
+  .custom_range {
+    position: absolute;
+    width: 70%;
+    float:left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .custom_default {
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .custom_left {
+    position: absolute;
+    width: 75%;
+    float: left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .custom_right {
+    position: absolute;
+    width: 75%;
+    float: right;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .custom_addon_left {
+      position: relative;
+      height: 100%;
+      width: 12%;
+      float: left;
+  }
+
+  .custom_addon_right {
+      position: relative;
+      height: 100%;
+      width: 12%;
+      float: right;
+  }
+
+  .custom_addon_display_none {
+      display: none;
+  }
+
+  .btn_addon_right {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+  .btn_addon_left {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+/* Slider */
+	input[type='range']  {
+		-webkit-appearance: none ;
+        outline: none;
+        height: 4px;
+	}
+	input[type='range']::-webkit-slider-runnable-track {
+		-webkit-appearance: none ;
+		border-radius: 5px;	
+		background-color: #f0fff0;
+		height: 8px;
+		vertical-align:middle;
+		border: none;
+		cursor: pointer;
+	}
+
+/* Slider Handle Style*/
+	input[type='range']::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		background-color: #7aa5db;
+		box-shadow: 0 0 0 2px #f0fff0;
+		vertical-align:middle;
+		border: none;
+		cursor: pointer;
+		margin-top: -6px;
+	}
+
+    input[type='range'].rectangle::-webkit-slider-thumb {
+        width: 12px;
+        height: 20px;
+    }
+
+    input[type='range'].rounded-rectangle::-webkit-slider-thumb {
+        width: 12px;
+        height: 20px;
+        border-radius: 3px;
+    }
+
+    input[type='range'].circle::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50px;
+    }
+
+    input[type=range].oval::-webkit-slider-thumb {
+        width: 26px;
+        height: 17px;
+        -moz-border-radius: 12px / 6px;
+        -webkit-border-radius: 12px / 6px;
+        border-radius: 12px / 6px;
+    }
+
+    input[type=range].none::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+        background-color: transparent;
+        box-shadow: 0 0 0 2px transparent;
+        border-color: transparent;
+    }
+    input[type=range].none::-webkit-slider-thumb:hover{
+        background: transparent;
+    }
+     input[type=range].none:active::-webkit-slider-thumb{
+        background: transparent;
+    }
+
+	input[type='range']::-webkit-slider-thumb:hover { 
+		background: #f0fff0;
+	}
+	input[type='range']:active::-webkit-slider-thumb { 
+		background: #f0fff0; 
+	}
+	input[type='range']::-moz-range-track{
+		-moz-appearance: none ;
+		border-radius: 5px;
+		box-shadow: inset 1px 1px 1px rgba(000,000,000,0.10);
+		background-color: #f0fff0;
+		height: 8px;
+		vertical-align:middle;
+		margin:0; padding:0;
+		border: none;
+		cursor: pointer; 
+	}
+	input[type='range']::-moz-range-thumb {
+		-moz-appearance: none ;
+		border-radius: 100%;
+		background-color: #f0fff0;
+		box-shadow: 0 0 0 4px #f0fff0;
+		height: 22px;
+		width: 22px;
+		vertical-align:middle;
+		border: none;
+		cursor: pointer;
+		margin-top: -6px;
+	}
+	input[type='range']::-moz-range-thumb:hover { 
+		background: #7aa5db; 
+	}
+	input[type='range']:active::-moz-range-thumb { 
+		background: #7aa5db; 
+	}
+	input[type=range]::-ms-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		background: transparent;
+		border-color: transparent;
+		border-width: 39px 0;
+		color: transparent;
+	}
+	input[type=range]::-ms-fill-lower {
+		background: #f0fff0;
+		border: 0px solid #000101;
+		border-radius: 50px;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+	}
+	input[type=range]::-ms-fill-upper {
+		background: #f0fff0;
+		border: 0px solid #000101;
+		border-radius: 50px;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+	}
+	input[type=range]::-ms-thumb {
+		box-shadow: inset 0 0 0 4px #f0fff0, inset 0 0 4px #f0fff0, inset 0 0 0 4px #f0fff0;
+		border: 0px solid #000000;
+		height: 22px;
+		width: 22px;
+		border-radius: 100%;
+		background: #f0fff0;
+		cursor: pointer;
+		margin-top: -2px;	
+	}
+
+/* Slider Progress Style */
+
+    input[type="range"].singlerange::-webkit-slider-runnable-track {
+		position: relative;
+		border-radius: 5px;	
+		height: 8px;
+		vertical-align:middle;
+		border: none;
+		cursor: pointer;
+		background: var(--track-background);
+		--track-background: linear-gradient(to right,
+                var(--range-color) var(--handle),
+                #f0fff0 0
+			);
+		--range-color: #7aa5db;
+	}
+
+
+
+/* Slider Size */
+.size-x-small {
+    width: 200px;
+}
+
+.size-small {
+    width: 250px;
+}
+
+.size-regular {
+    width: 300px;
+}
+
+.size-large {
+    width: 350px;
+}
+
+.size-x-large {
+    width: 400px;
+}
+
+/* Slider Stretch */
+
+/* by width */
+.stretch_width {
+    width: 100%;
+}
+
+/* by height */
+.stretch_height{
+    height: 100%;
+}
+
+/* by height and width */
+.stretch_both{
+    width: 100%;
+    height: 100%;
+}
+
+/* Slider Orientation */
+ .vertical {
+     transform: rotate(-90deg);
+ }
+
+ .rotate {
+     transform: rotate(-90deg);
+ }
+
+/* Icons Style */
+  .custom_icon_color {
+      color: #f0fff0;
+  }
+
+  .custom_icon_color:hover {
+      color: #d6dbd6;
+  }
+
+.tickmarks {
+    box-sizing: border-box;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tickmarks td {
+    color: transparent;
+    border-left: 1px solid white;
+}
