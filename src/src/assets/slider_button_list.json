@@ -1,0 +1,211 @@
+{
+    "items":[
+      [
+        {
+            "type": "button",
+            "attributes": [
+                {
+                    "key": "name",
+                    "value": "buttonXSmall"
+                },
+                {
+                    "key": "size",
+                    "value": "x-small"
+                },
+                {
+                    "key": "class",
+                    "value": "common_btn_style"
+                },
+                {
+                    "key": "label",
+                    "value": "Min"
+                }
+            ] 
+        },
+        {
+            "type": "slider",
+            "attributes": [
+                {
+                    "key": "name",
+                    "value": "sizeXSmall"
+                },
+                {
+                    "key": "min",
+                    "value": "20"
+                },
+                {
+                    "key": "initValue",
+                    "value": "30"
+                },
+                {
+                    "key": "isRange",
+                    "value": "false"
+                },
+                {
+                    "key": "size",
+                    "value": "size-x-small"
+                }
+            ] 
+        },
+        {
+            "type": "button",
+            "attributes": [
+                {
+                    "key": "name",
+                    "value": "buttonXSmall2"
+                },
+                {
+                    "key": "size",
+                    "value": "x-small"
+                },
+                {
+                    "key": "class",
+                    "value": "common_btn_style"
+                },
+                {
+                    "key": "label",
+                    "value": "Max"
+                }
+            ] 
+        }
+    ],
+    [
+        {
+            "type": "button",
+            "attributes": [
+                {
+                    "key": "name",
+                    "value": "buttonXSmall"
+                },
+                {
+                    "key": "size",
+                    "value": "x-small"
+                },
+                {
+                    "key": "class",
+                    "value": "common_btn_style"
+                },
+                {
+                    "key": "label",
+                    "value": "Min"
+                }
+            ] 
+        },
+        {
+            "type": "slider",
+            "attributes": [
+                {
+                    "key": "name",
+                    "value": "sizeXSmall"
+                },
+                {
+                    "key": "min",
+                    "value": "20"
+                },
+                {
+                    "key": "initValue",
+                    "value": "30"
+                },
+                {
+                    "key": "isRange",
+                    "value": "false"
+                },
+                {
+                    "key": "size",
+                    "value": "size-x-small"
+                }
+            ] 
+        },
+        {
+            "type": "button",
+            "attributes": [
+                {
+                    "key": "name",
+                    "value": "buttonXSmall2"
+                },
+                {
+                    "key": "size",
+                    "value": "x-small"
+                },
+                {
+                    "key": "class",
+                    "value": "common_btn_style"
+                },
+                {
+                    "key": "label",
+                    "value": "Max"
+                }
+            ] 
+        }
+    ],
+    [
+        {
+            "type": "button",
+            "attributes": [
+                {
+                    "key": "name",
+                    "value": "buttonXSmall"
+                },
+                {
+                    "key": "size",
+                    "value": "x-small"
+                },
+                {
+                    "key": "class",
+                    "value": "common_btn_style"
+                },
+                {
+                    "key": "label",
+                    "value": "Min"
+                }
+            ] 
+        },
+        {
+            "type": "slider",
+            "attributes": [
+                {
+                    "key": "name",
+                    "value": "sizeXSmall"
+                },
+                {
+                    "key": "min",
+                    "value": "20"
+                },
+                {
+                    "key": "initValue",
+                    "value": "30"
+                },
+                {
+                    "key": "isRange",
+                    "value": "false"
+                },
+                {
+                    "key": "size",
+                    "value": "size-x-small"
+                }
+            ] 
+        },
+        {
+            "type": "button",
+            "attributes": [
+                {
+                    "key": "name",
+                    "value": "buttonXSmall2"
+                },
+                {
+                    "key": "size",
+                    "value": "x-small"
+                },
+                {
+                    "key": "class",
+                    "value": "common_btn_style"
+                },
+                {
+                    "key": "label",
+                    "value": "Max"
+                }
+            ] 
+        }
+    ]
+    ]
+}

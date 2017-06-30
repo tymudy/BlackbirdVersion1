@@ -367,7 +367,7 @@ window.webkit = window.webkit || (function() {
         CS.commands.digital[51]( true);
         CS.commands.digital[50]( true);
         CS.commands.digital[51]( true);
-        CS.commands.digital[112]( true);
+       // CS.commands.digital[112]( true);
     }, 3000);
 
     return {

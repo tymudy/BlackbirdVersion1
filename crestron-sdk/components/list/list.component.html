@@ -1,0 +1,22 @@
+<div class="list" id="{{name}}" attr.min_width="{{min_width}}" attr.min_heigth="min_heigth" attr.max_width="{{max_heigth}}" attr.max_heigth="{{max_heigth}}">
+
+  <span id="list-header">{{header}}</span>
+
+  <div class="list-content">
+    <virtual-scroll id="slider_list" [items]="firstListAttributes" (end)="fetchMore($event)" (update)="scrollItems = $event" *ngIf="load_type === 'scroll'">
+      <div *ngFor="let item of scrollItems" style="display: block;     width: 100%;
+    float: left;">
+        <list-item-component  [item]="item" [type]="firstListType"></list-item-component>
+      </div>
+    </virtual-scroll>
+    <virtual-scroll id="slider_button" [items]="secondListAttributes" (update)="scrollItems = $event" *ngIf="load_type === 'pagination'">
+      <div *ngFor="let array of scrollItems" style="display: block;     width: 100%;
+    float: left;">
+        <list-item-component *ngFor="let item of array" [item]="item.attributes" [type]="item.type"></list-item-component>
+      </div>
+    </virtual-scroll>
+  </div>
+
+  <span id="list-footer">{{footer}}</span>
+
+</div>

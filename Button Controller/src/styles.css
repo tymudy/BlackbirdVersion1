@@ -10,3 +10,11 @@ body{
 .tap label {
     color: red;
 }
+
+.press label {
+    color: yellow;
+}
+
+.focus label {
+    font-size: 1.2em;
+}

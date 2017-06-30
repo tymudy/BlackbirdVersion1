@@ -1,0 +1,62 @@
+.button_wrapper{
+    position: relative;
+    display: block;
+    width: 90%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button_container{
+  position: relative;
+  width: 15%;
+  height: 15%;
+  min-width: 300px;
+  min-height: 250px;
+  border: 1px solid rgb(50,54,56);
+  border: 1px solid rgba(50,54,56, .1);
+  -webkit-background-clip: padding-box; 
+  background-clip: padding-box;
+  box-sizing: border-box;
+  margin: 4% 2%;
+  display: inline-flex;
+}
+
+.button_container:hover {
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+}
+
+h5 {
+    padding: 15px;
+    text-align: center;
+    height: 20%;
+    width: 100%;
+} 
+
+.crestron_button_container {
+    display: block;
+    position: absolute;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.crestron_button_container div{
+    display: inline-block;
+    position: relative;
+    top: 50%;   
+}
+
+.crestron_button_container .vertical{
+  margin-top: 10%;
+}
+
+
+
+

@@ -1,0 +1,582 @@
+{
+  "type": "slider",
+  "attributes": [
+[
+    {
+        "key": "name",
+        "value": "sliderSimple"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "step",
+        "value": "15"
+    }
+],
+[
+    {
+        "key": "name",
+        "value": "rangeSlider"
+    },
+    {
+        "key": "initValue",
+        "value": "20"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "step",
+        "value": "15"
+    },
+    {
+        "key": "isRange",
+        "value": "true"
+    },
+    {
+         "key": "initValuePair",
+        "value": "30 60"
+    }
+],
+[
+    {
+        "key": "name",
+        "value": "sliderIconLeft"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    }
+ ],
+ [
+     {
+        "key": "name",
+        "value": "rangedSliderIconLeft"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "max",
+        "value": "200"
+    },
+    {
+        "key": "initValuePair",
+        "value": "20 80"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "true"
+    }
+ ],
+ [
+    {
+        "key": "name",
+        "value": "handleCircle"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    }
+],
+[
+    {
+        "key": "name",
+        "value": "handleRectangle"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "handleShape",
+        "value": "rectangle"
+    }
+  ] ,
+  [
+    {
+        "key": "name",
+        "value": "handleRoundedRectangle"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "handleShape",
+        "value": "rounded-rectangle"
+    }
+],
+ [
+     {
+        "key": "name",
+        "value": "handleOval"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "handleShape",
+        "value": "oval"
+    }
+],
+[
+     {
+        "key": "name",
+        "value": "handleNone"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "handleShape",
+        "value": "none"
+    }
+],
+ [
+     {
+        "key": "name",
+        "value": "sizeXSmall"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "size",
+        "value": "size-x-small"
+    }
+],
+[
+     {
+        "key": "name",
+        "value": "sizeSmall"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "size",
+        "value": "size-small"
+    }
+],
+[
+    {
+        "key": "name",
+        "value": "sizeSmall"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "size",
+        "value": "size-small"
+    }
+],
+[
+     {
+        "key": "name",
+        "value": "sizeSmall"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "size",
+        "value": "size-small"
+    }
+],
+[
+     {
+        "key": "name",
+        "value": "sizeXSmall"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "size",
+        "value": "size-x-small"
+    }
+],
+[
+     {
+        "key": "name",
+        "value": "sliderStretchWidth"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "strech",
+        "value": "width"
+    }
+],
+[
+    {
+        "key": "name",
+        "value": "sliderStretchHeight"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "strech",
+        "value": "height"
+    }
+],
+[
+    {
+        "key": "name",
+        "value": "sliderStretchBoth"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "strech",
+        "value": "both"
+    }
+],
+[
+    {
+        "key": "name",
+        "value": "sliderStretchBoth1"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "strech",
+        "value": "both"
+    }
+],
+[
+    {
+        "key": "name",
+        "value": "sliderStretchBoth2"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "strech",
+        "value": "both"
+    }
+],
+[
+    {
+        "key": "name",
+        "value": "sliderStretchBoth3"
+    },
+    {
+        "key": "min",
+        "value": "20"
+    },
+    {
+        "key": "minIcon",
+        "value": "fa fa-minus"
+    },
+    {
+        "key": "initValue",
+        "value": "30"
+    },
+    {
+        "key": "maxIcon",
+        "value": "fa fa-plus"
+    },
+    {
+         "key": "isRange",
+        "value": "false"
+    },
+    {
+         "key": "strech",
+        "value": "both"
+    }
+]
+
+]
+}

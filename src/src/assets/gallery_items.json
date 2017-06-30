@@ -1,0 +1,66 @@
+[
+  {
+    "index": 0,
+    "name": "BUTTON",
+    "img_url": "assets/images/crestron-10.png",
+    "img_url_active": "assets/images/crestron-35.png",
+    "submenu": [
+      {
+        "name": "Design",
+        "url": "button"
+      },
+      {
+        "name": "Spec",
+        "url": "spec"
+      }
+    ]
+  },
+  {
+    "index": 1,
+    "name": "LIST",
+    "img_url": "assets/images/crestron-14.png",
+    "img_url_active": "assets/images/crestron-31.png",
+    "submenu": [
+      {
+        "name": "Design",
+        "url": "list"
+      },
+      {
+        "name": "Spec",
+        "url": "spec"
+      }
+    ]
+  },
+  {
+    "index": 2,
+    "name": "SLIDER",
+    "img_url": "assets/images/crestron-12.png",
+    "img_url_active": "assets/images/crestron-33.png",
+    "submenu": [
+      {
+        "name": "Design",
+        "url": "slider"
+      },
+      {
+        "name": "Spec",
+        "url": "spec"
+      }
+    ]
+  },
+  {
+    "index": 4,
+    "name": "EMBEDDED VIDEO",
+    "img_url": "assets/images/crestron-22.png",
+    "img_url_active": "assets/images/crestron-23.png",
+    "submenu": [
+      {
+        "name": "Design",
+        "url": "video"
+      },
+      {
+        "name": "Spec",
+        "url": "spec"
+      }
+    ]
+  }
+]

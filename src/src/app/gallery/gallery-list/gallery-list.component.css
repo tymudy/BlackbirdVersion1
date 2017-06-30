@@ -1,0 +1,23 @@
+list-component,
+[listComponent]{
+  width: 420px;
+  height: 65%;
+  border: 1px solid rgb(50,54,56);
+  border: 1px solid rgba(50,54,56, .1);
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  margin: 5% auto;
+  display: inline-block;
+  margin-left: 3%;
+}
+
+#layout-content.slide list-component,
+#layout-content.slide [listComponent]{
+  margin: 5% calc(30% - 200px) !important;
+}
+
+
+list-component:hover,
+[listComponent]:hover {
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+}
